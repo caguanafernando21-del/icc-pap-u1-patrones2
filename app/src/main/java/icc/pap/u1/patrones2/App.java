@@ -10,7 +10,7 @@ public class App {
     }
 
     
-      //Metodo requerido para ejecutar y demostrar el patrón Singleton.
+    
      
     public static void runSingleton() {
         // Intentamos obtener la primera instancia
