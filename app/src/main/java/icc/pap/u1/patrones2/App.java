@@ -3,15 +3,31 @@
  */
 package icc.pap.u1.patrones2;
 
+import java.util.List;
+
+import icc.pap.u1.patrones2.factoryMethod.Importador;
+import icc.pap.u1.patrones2.factoryMethod.ImportadorPuntoComa;
+
 public class App {
    public static void main(String[] args) {
         System.out.println("=== Ejecutando Patron Singleton ===");
         runSingleton();
+        runFactoryMethod();
     }
 
     
-    
      
+    private static void runFactoryMethod() {
+        Importador impPc = new ImportadorPuntoComa();
+            // implemto el crearLector()
+            //para devolver LectorPuntComa
+        
+        System.out.println(impPc.importacion(List.of("S01;22.5;C","S01;22.5;C")));
+
+}
+
+
+
     public static void runSingleton() {
         // Intentamos obtener la primera instancia
         SingletonDemo obj1 = SingletonDemo.obtenerInstancia();
@@ -28,4 +44,7 @@ public class App {
             System.out.println("\nno apuenta es probable que se crearon de forma diferente.");
         }
     }
+
+    
+
 }
