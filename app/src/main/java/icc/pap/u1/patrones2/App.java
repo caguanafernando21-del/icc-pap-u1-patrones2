@@ -5,18 +5,58 @@ package icc.pap.u1.patrones2;
 
 import java.util.List;
 
+import icc.pap.u1.patrones2.builder.Pizza;
+import icc.pap.u1.patrones2.builder.PizzaBuilder;
 import icc.pap.u1.patrones2.factoryMethod.Importador;
 import icc.pap.u1.patrones2.factoryMethod.ImportadorPuntoComa;
+import icc.pap.u1.patrones2.prototype.PlantillaEmail;
 
 public class App {
    public static void main(String[] args) {
-        System.out.println("=== Ejecutando Patron Singleton ===");
-        runSingleton();
-        runFactoryMethod();
+        //System.out.println("=== Ejecutando Patron Singleton ===");
+        //runSingleton();
+        //runFactoryMethod();
+        runPrototype();
+        runBuilder();
     }
 
     
      
+    private static void runBuilder() {
+        
+        
+        Pizza pizza = new PizzaBuilder()
+        .addIng("Jamon")
+        .size("large")
+        .addIng("jamon")
+        .addIng("queso")
+        .addIng("Salami")
+        .build();
+
+        System.out.println(pizza.descripcion()); 
+        Pizza pizza2 = new PizzaBuilder().build();
+        System.out.println("----------pizza2-------");
+        System.out.println(pizza2.descripcion());
+
+        
+    }
+
+
+
+    private static void runPrototype() {
+    PlantillaEmail pEmail = new PlantillaEmail("AVISO", "pedido listo");
+    PlantillaEmail pEmailSolicitud = pEmail.clone();
+    //PlantillaEmail pEmailSolicitud = pEmail.copia();
+    pEmailSolicitud.cambiarAsunto("Solicitud");
+    
+    System.out.println(pEmail);
+    System.out.println(pEmailSolicitud.contenido());
+
+    }
+
+
+
+
     private static void runFactoryMethod() {
         Importador impPc = new ImportadorPuntoComa();
             // implemto el crearLector()

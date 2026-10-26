@@ -5,7 +5,9 @@ import java.util.List;
 
 public abstract class Importador {
     //Factory method
-    protected abstract LecturaLinea crearLector();
+                        //producto
+    protected abstract LecturaLinea crearLector(); //creador
+
     List<Lectura> resultado = new ArrayList<>();
 
     public final List<Lectura> importacion(List<String> lecturas){
