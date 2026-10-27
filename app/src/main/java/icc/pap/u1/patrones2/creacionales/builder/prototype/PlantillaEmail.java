@@ -1,4 +1,4 @@
-package icc.pap.u1.patrones2.prototype;
+package icc.pap.u1.patrones2.creacionales.builder.prototype;
 
 
 public class PlantillaEmail implements Copiable {

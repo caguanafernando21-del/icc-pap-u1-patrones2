@@ -1,4 +1,4 @@
-package icc.pap.u1.patrones2.builder;
+package icc.pap.u1.patrones2.creacionales.builder;
 /*
 ObjBuilder
 PizzaBuilder va a acumular las opciones de una pizza

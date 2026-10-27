@@ -1,4 +1,4 @@
-package icc.pap.u1.patrones2.builder;
+package icc.pap.u1.patrones2.creacionales.builder;
 //clase inmutable (que no se puede cambiar)
 
 import java.util.List;

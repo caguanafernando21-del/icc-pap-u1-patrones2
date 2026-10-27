@@ -5,23 +5,42 @@ package icc.pap.u1.patrones2;
 
 import java.util.List;
 
-import icc.pap.u1.patrones2.builder.Pizza;
-import icc.pap.u1.patrones2.builder.PizzaBuilder;
+import icc.pap.u1.patrones2.creacionales.builder.Pizza;
+import icc.pap.u1.patrones2.creacionales.builder.PizzaBuilder;
+import icc.pap.u1.patrones2.creacionales.builder.prototype.PlantillaEmail;
 import icc.pap.u1.patrones2.factoryMethod.Importador;
 import icc.pap.u1.patrones2.factoryMethod.ImportadorPuntoComa;
-import icc.pap.u1.patrones2.prototype.PlantillaEmail;
+import icc.pap.u1.patrones2.practica.ConfiguracionSistema;
+import icc.pap.u1.patrones2.practica.Pedido;
 
 public class App {
    public static void main(String[] args) {
         //System.out.println("=== Ejecutando Patron Singleton ===");
         //runSingleton();
         //runFactoryMethod();
-        runPrototype();
-        runBuilder();
+        //runPrototype();
+        //runBuilder();
+        pedidos();
     }
 
-    
+    private static void pedidos() {
+        ConfiguracionSistema config1 = ConfiguracionSistema.getInstancia();
+        System.out.printf("Configuración del sistema Impuesto: %.1f%%\n", config1.getImpuesto());
+
+        Pedido pedido1 = Pedido.crearPedido("PRESENCIAL", "P001", "Ana ", 150.00);
+        pedido1.procesar();
+
+        Pedido pedido2 = Pedido.crearPedido("EN_LINEA", "P002", "Danae", 200.00);
+        pedido2.procesar();
+
+        ConfiguracionSistema config2 = ConfiguracionSistema.getInstancia();
+        boolean mismaInstancia = (config1 == config2);
+        System.out.println("Configuración compartida: " + mismaInstancia);
+    }
+
      
+
+
     private static void runBuilder() {
         
         
@@ -34,7 +53,9 @@ public class App {
         .build();
 
         System.out.println(pizza.descripcion()); 
+
         Pizza pizza2 = new PizzaBuilder().build();
+        
         System.out.println("----------pizza2-------");
         System.out.println(pizza2.descripcion());
 
